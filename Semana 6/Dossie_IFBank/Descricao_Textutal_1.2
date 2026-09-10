@@ -1,0 +1,39 @@
+Descrição Textual — Realizar Pix
+Caso de uso: Realizar Pix
+
+Ator principal: Cliente
+Ator secundário: Sistema BACEN
+
+Pré-condições:
+
+Cliente deve estar autenticado no aplicativo.
+Cliente deve possuir uma conta ativa.
+Conta deve possuir saldo suficiente para a transferência.
+Fluxo principal:
+
+Cliente acessa a opção Realizar Pix.
+Sistema apresenta a tela de transferência.
+Cliente informa a chave Pix do destinatário.
+Sistema solicita ao BACEN a validação da chave Pix.
+BACEN retorna os dados do destinatário.
+Sistema apresenta os dados do destinatário ao cliente.
+Cliente informa o valor do Pix.
+Sistema verifica se há saldo suficiente na conta.
+Sistema debita o valor da conta do cliente.
+Sistema registra a transação no extrato.
+Sistema gera e exibe o comprovante do Pix.
+Caso de uso é encerrado com sucesso.
+Fluxos de exceção:
+
+[FE-01] Saldo insuficiente
+
+No passo 8, o sistema verifica que o saldo é insuficiente.
+O sistema informa ao cliente que não há saldo suficiente.
+A transferência não é realizada.
+O caso de uso é encerrado.
+[FE-02] Chave Pix inválida
+
+No passo 4, o BACEN informa que a chave não existe ou é inválida.
+O sistema informa o cliente sobre a chave inválida.
+A transferência não é realizada.
+O caso de uso é encerrado.
