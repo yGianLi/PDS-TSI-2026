@@ -1,1 +1,0 @@
-# Projeto de Agente de IA para Rotinas
