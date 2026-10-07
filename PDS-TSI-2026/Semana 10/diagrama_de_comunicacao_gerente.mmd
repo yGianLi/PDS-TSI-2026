@@ -1,0 +1,30 @@
+flowchart LR
+    G["Gerente"]
+    S["Sistema"]
+    P["Produto"]
+    V["Venda"]
+
+    G --- S
+    S --- P
+    S --- V
+
+    G -->|"1: cadastrarProduto(dados)"| S
+    S -->|"1.1: validarDados()"| P
+    S -->|"1.2: [dados válidos] criarProduto()"| P
+
+    G -->|"2: alterarPreco(codigo, novoPreco)"| S
+    S -->|"2.1: localizarProduto(codigo)"| P
+    S -->|"2.2: [produto encontrado] alterarPreco(novoPreco)"| P
+
+    G -->|"3: atualizarEstoque(codigo, quantidade, tipo)"| S
+    S -->|"3.1: localizarProduto(codigo)"| P
+    S -->|"3.2: [entrada] adicionarEstoque(quantidade)"| P
+    S -->|"3.3: [saída] removerEstoque(quantidade)"| P
+
+    G -->|"4: removerProduto(codigo)"| S
+    S -->|"4.1: localizarProduto(codigo)"| P
+    S -->|"4.2: [produto encontrado] desativar()"| P
+
+    G -->|"5: consultarVendas(filtros)"| S
+    S -->|"5.1: buscarVendas(filtros)"| V
+    V -->|"5.2: retornarVendas()"| S
